@@ -6,11 +6,25 @@ $(function(){
 	  	nextArrow:'<button type="button" class="slick-next"><i class="right"></i></button>'
 	});
 
-	
+	$('.menu-burger').click(function(e){
+		$('.menu-burger, .navigation__menu').toggleClass('active');
+		$('body').toggleClass('lock');
+	});
 
     
 	
-    
+    /*
+$("#menuButton").on('click', function(){
+          $(this).toggleClass('menu-opened');
+          var mainmenu = $('.mainmenu');
+          if (mainmenu.hasClass('open')) { 
+            mainmenu.removeClass('open');
+          }
+          else {
+            mainmenu.addClass('open');
+          }
+        });
+    */
   	
 
  	//плавное перемещение страницы к нужному блоку

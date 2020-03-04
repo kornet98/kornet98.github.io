@@ -35,6 +35,7 @@ ul, li {
 
 a, a:hover, a:active {
 	text-decoration: none;
+	outline: none;
 }
 
 input, input:hover, input:focus, input:active,
@@ -45,27 +46,22 @@ button, button:hover, button:focus, button:active
 }
 
 .btn-p{
-	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 	background: transparent;
 	height: 15px;
+	font-size: 10px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #000000;
+	letter-spacing: 0.08em;
+	transition: all 0.5s ease;
 }
-
-.btn-p:hover{
-	background: #C2ADCC;
-}
-
 
 .container{
-
 	width: 1052px;
 	padding: 0;
-
 }
-/*.col{
-	margin: 0;
-	padding: 0;
-}*/
 
 .row{
 	margin: 0;
@@ -76,14 +72,29 @@ button, button:hover, button:focus, button:active
 .navigation{
 	width: 100%;
 	position: fixed;
-	z-index: 999;
-	padding-top: 27px;
-	padding-bottom: 21px;
+	z-index: 50;
+	padding: 27px 0 21px;
 	background: #FFFFFF;
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.navigation:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	background: #FFFFFF;
+}
+
 .site-logo{
+	position: relative;
+	z-index: 6;
+}
+
+.page-logo__word{
 	position: relative;
 }
 
@@ -97,12 +108,19 @@ button, button:hover, button:focus, button:active
     left: 74px;
 }
 
-.menu{
-	justify-content: space-evenly;
-	padding-top: 5px;
+.menu_burger{
+	display: none;
 }
 
-.menu__item a{
+.navigation__list{
+	display: flex;
+	justify-content: space-evenly;
+	padding-top: 5px;
+	position: relative;
+	z-index: 6;
+}
+
+.navigation__item a{
 	color: #6A6A6A;
 	font-size: 11px;
 	font-weight: 400;
@@ -111,7 +129,7 @@ button, button:hover, button:focus, button:active
 	text-transform: uppercase;
 }
 
-.menu__item a:hover{
+.navigation__item a:hover{
 	border-bottom: 2px solid #C2ADCC;
 }
 
@@ -119,6 +137,8 @@ button, button:hover, button:focus, button:active
 	justify-content: space-between;
 	-ms-align-items: center;
 	align-items: center;
+	position: relative;
+	z-index: 6;
 }
 
 .controls__registration{
@@ -130,6 +150,8 @@ button, button:hover, button:focus, button:active
 .controls__registration:hover{
 	color: #C2ADCC;
 	text-decoration: underline;
+	position: relative;
+	z-index: 3;
 }
 
 .controls__btn-enter{
@@ -142,15 +164,22 @@ button, button:hover, button:focus, button:active
 	border: 1px solid #C2ADCC;
 	background: #C2ADCC;
 	text-align: center;
+	transition: all 0.5s ease;
 }
+
+
 
 .controls__btn-enter:hover{
 	color: #C2ADCC;
 	background: transparent;
 	border: 1px solid #C2ADCC;
-	transition: all 0.5s ease;
-	cursor: pointer;
+	box-shadow: 0px 0px 38px 5px rgba(194,173,204,1);
 }
+
+.controls__btn-enter:active{
+	box-shadow: 0px 0px 28px -5px rgba(194,173,204,1);
+}
+
 
 
 /*--------------HEADER---------------*/
@@ -166,29 +195,31 @@ button, button:hover, button:focus, button:active
 	font-weight: 300;
 	margin-bottom: 17px;
 	padding: 8px 0;
+	transition: all 0.3s ease;
 }
 
 .discount:hover{
 	background: #fff;
 	cursor: pointer;
+	box-shadow: 0px 0px 30px 5px rgba(194,173,204,1);
+}
+
+.discount:active{
+	box-shadow: 0px 0px 20px -5px rgba(194,173,204,1);
 }
 
 /*slider*/
 
-.head-slider{
-
-}
 
 .slide{
 	position: relative;
-
+	outline: none;
 }
 
 .slide__desc{
 	width: 510px;
 	height: 467px;
 	background: #fff;
-	/*padding: 107px 90px 126px 65px;*/
 }
 
 .slide__name{
@@ -223,22 +254,18 @@ button, button:hover, button:focus, button:active
 
 .slide__btn{
 	width: 227px;	
-	position: relative;
-    justify-content: flex-end;
-    margin-left: 193px;
-    margin-top: 50px;
+	box-shadow: inset 0px -7px 0px 0px rgba(194,173,204,1);
+	margin-left: 193px;
+	margin-top: 56px;
 }
 
-.btn-text{
-	position: absolute;
-	top: -2px;
-	left: 10px;
-	font-size: 10px;
-	font-weight: 400;
-	text-transform: uppercase;
-	color: #000000;
-	z-index: 2;
-	letter-spacing: 0.08em;
+.slide__btn:hover{
+	box-shadow: inset 0px 7px 0px 0px rgba(194,173,204,1);
+	color: #000;
+}
+
+.slide__btn:active{
+	box-shadow: inset 0px 7px 0px 15px rgba(194,173,204,1);
 }
 
 .btn-back{
@@ -293,13 +320,11 @@ button, button:hover, button:focus, button:active
 }
 
 i {
-
 	color: #000;
     border: solid #ADAFAE;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     display: inline-block;
-    padding: 5px;
-
+    padding: 4px;
 }
 
 .right {
@@ -315,6 +340,9 @@ i {
 
 /*-----------------SECTION - steps-----------------*/
 
+.steps{
+	margin-top: 30px;
+}
 
 .do-steps{
 	background: #B4CBD2;
@@ -331,8 +359,6 @@ i {
 	font-size: 36px;
 	bottom: 18px;
 	right: 30px;
-
-	
 }
 
 .do-steps__title{
@@ -353,10 +379,6 @@ i {
 	position: relative;	
 }
 
-/*.step-one{	
-	background: url('../image/yellow.jpg') no-repeat;
-}*/
-
 .step-one:after {
     position: absolute;
     content: '\2192';
@@ -366,10 +388,6 @@ i {
     right: 15px;
 }
 
-/*.step-two{	
-	background: url('../image/yellow.jpg') no-repeat;
-}*/
-
 .step-two:after {
     position: absolute;
     content: '\2192';
@@ -378,10 +396,6 @@ i {
     bottom: 12px;
     right: 15px;
 }
-
-/*.step-three{	
-	background: url('../image/yellow.jpg') no-repeat;
-}*/
 
 .step_title{
 	position: absolute;
@@ -401,6 +415,10 @@ i {
 	left: -8px;
 	font-size: 288px;
 	color: rgba(255, 255, 255, 0.5);
+}
+
+.step__image{
+	width: 100%;
 }
 
 
@@ -427,17 +445,23 @@ i {
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 	margin-top: 20px;
 	padding-bottom: 34px;
+	cursor: pointer;
 }
 
 .item:hover {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-  transition: all 0.5s ease;
+  	-webkit-transform: scale(1.05);
+  	-ms-transform: scale(1.05);
+  	transform: scale(1.05);
+  	transition: all 0.5s ease;
 }
 
 .item__picture{
 	width: 100%;
+}
+
+.item__logo-wrapper{
+	width: 90px;
+	margin: 0 auto;
 }
 
 .item__logo{
@@ -447,7 +471,6 @@ i {
 	background: #FFFFFF;
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 	top: 81px;
-    left: 33%;
     z-index: 5;
     display: flex;
     justify-content: center;
@@ -516,8 +539,6 @@ i {
 	padding: 3px 4px;
 }
 
-
-
 .equal, .equal > div[class*='col-'] {
     display: -webkit-box;
     display: -moz-box;
@@ -527,17 +548,20 @@ i {
     flex:1 0 auto;
 }
 
-
 .shop__btn{		
-	position: relative;
 	width: 89px;
-	height: 15px;
-    justify-content: flex-end;
-    margin-top: 46px;
-    cursor: pointer;
-    margin-left: 45%;
+	box-shadow: inset 0px -7px 0px 0px rgba(194,173,204,1);
+	margin: 46px auto 0;
 }
 
+.shop__btn:hover{
+	color: #000;
+	box-shadow: inset 0px 7px 0px 0px rgba(194,173,204,1);
+}	
+
+.shop__btn:active{
+	box-shadow: inset 0px 7px 0px 15px rgba(194,173,204,1);
+}	
 
 
 /*--------------------SECTION - phone------------------*/
@@ -548,14 +572,12 @@ i {
 }
 
 .phone-wrap{
-	background: url('../image/pink-fon.jpg') no-repeat center top/cover;;
+	background: url('../image/pink-fon.jpg') no-repeat center center;
 	padding: 70px 0 48px 80px;
 }
 
 .phone-content{
 	width: 380px;
-	/*background: url('../image/pink-fon.jpg') no-repeat center top/cover;;
-	padding: 54px 0 0 80px;*/
 }
 
 .phone-content__title{
@@ -576,16 +598,17 @@ i {
 
 .phone-content__btn{
 	width: 227px;	
-	position: relative;
-    justify-content: flex-end;
-    cursor: pointer;   
+	box-shadow: inset 0px -7px 0px 0px rgba(255, 255, 255, 0.5);
 }
 
-.phone-content__btn .btn-back{
-	background: rgba(255, 255, 255, 0.5);
-	
+.phone-content__btn:hover{
+	color: #000;	
+	box-shadow: inset 0px 7px 0px 0px rgba(255, 255, 255, 0.5);
 }
 
+.phone-content__btn:active{
+	box-shadow: inset 0px 7px 0px 15px rgba(255, 255, 255, 0.5);
+}
 
 
 /*-----------------FOOTER---------------------*/
@@ -600,17 +623,22 @@ i {
 	padding: 19px 0;
 }
 
-.footer .menu{
+.footer__list{
 	justify-content: space-between;
 }
 
-.footer .menu__item a{
+.footer__item a{
 	color: #939393;
 	font-size: 10px;
+	font-weight: 400;
 	line-height: 12px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
 }
 
-
+.footer__item a:hover{
+	border-bottom: 2px solid #C2ADCC;
+}
 
 .social{
 	justify-content: space-between;
@@ -635,4 +663,370 @@ i {
 
 .links__item a:hover{
 	border-bottom: 1px solid #C4C4C4;
+}
+
+.slick-dotted.slick-slider {
+	    margin-right: 1px;
+	}
+
+@media screen and (max-width: 1200px) {
+
+	.slick-dotted.slick-slider {
+	    margin: 0 17px;
+	}
+
+	.slick-prev {
+    	left: -17px;
+	}
+
+	.slick-next {
+	    right: -17px;
+	}
+
+	.step__num {
+	    top: -39px;
+	}
+}
+/*---------------MEDIA QUERIES------------------*/
+
+/* 768 - 992 px */
+@media screen and (max-width: 992px) {
+
+	
+    /*slider*/
+	.slide-picture {
+	    left: 365px;
+	}
+
+	.slide__desc {
+	    width: 420px;
+	}
+
+	.slide__name {
+		margin-top: 83px;
+	    margin-left: 20px;
+	}
+
+	.slide__title {
+	    margin-left: 20px;
+	}
+
+	.slide__text{
+		margin-left: 20px;
+	}
+
+	.slide__btn{
+		margin-left: 115px;
+	}
+
+	.slick-prev {
+    	left: -17px;
+	}
+
+	.slick-next {
+	    right: -17px;
+	}
+
+	/*SECTION - step*/
+	
+	.do-steps{
+		width: 330px;
+	}
+
+	.step{
+		width: 100%;
+	}
+
+	.step__image{
+		width: 100%;
+	}
+
+	/*SECTION - shop*/
+
+	.item {
+    	width: 100%;
+    }
+
+    .item__logo{
+    	top: 110px;
+    }
+
+
+	/*SECTION - phone*/
+
+    .phone-wrap {
+	    background: url(../image/pink-fon.jpg) no-repeat center right/cover;
+	    padding: 38px 0 48px 25px;
+	}
+
+	/*.slick-dotted.slick-slider {
+	    margin-right: 5px;
+	}*/
+
+}
+
+/* 576 - 768 px */
+@media screen and (max-width: 767px) {
+	
+	/*.slick-dotted.slick-slider {
+	    margin-right: 5px;
+	}*/
+
+	.site-logo {
+	    margin-top: 5px;
+	}
+
+	/*slider*/
+	.slide-picture {
+	    top: 20px;
+	    left: 765px;
+    	
+	}
+
+	.slick-slide img {
+	    height: 320px;
+	}
+
+	.slide__desc {
+	    width: 270px;
+	    height: 363px;
+	}
+
+	.slide__name {
+		margin-top: 40px;
+    	margin-left: 20px;
+	}
+
+	.slide__title {
+       width: 250px;	   
+	   font-size: 34px;
+	}
+
+	.slide__text{
+		width: 260px;
+	}
+
+	.slide__btn{
+		margin-left: 15px;
+	}
+
+	.slick-prev {
+    	left: -13px;
+	}
+
+	.slick-next {
+	    right: -13px;
+	}
+
+	/*SECTION - step*/
+	
+	.do-steps{
+		width: 100%;
+	    padding-bottom: 34px;
+	}
+
+	.step{
+		width: 100%;
+	}
+
+	.step__image{
+		width: 100%;
+	}
+
+	.do-steps:after {
+	    display: none;
+	}
+
+	.step-one:after {
+	    display: none;
+	}
+
+	.step-two:after {
+	    display: none;
+	}
+
+	.item__logo{
+    	top: 81px;
+    }
+
+	/*SECTION - phone*/
+
+    .phone-wrap {
+	    background: url(../image/pink-fon.jpg) no-repeat center left/cover;
+	}
+
+	/*Burger*/ 
+
+	body.lock{
+		overflow: hidden;
+	}
+
+	.menu-burger{
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 20px;
+		z-index: 30;
+		margin-top: 4px;
+	}
+
+	.menu-burger:before,
+	.menu-burger:after{
+		content: '';
+		position: absolute;
+		width: 100%;
+		background: #C2ADCC;
+		height: 2px;
+		left: 0;
+		transition: all 0.5s ease;
+	}
+
+	.menu-burger:before{
+		top: 0;
+	}
+
+	.menu-burger:after{
+		bottom: 0;
+	}
+
+	.menu-burger.active:before{
+		transform: rotate(45deg);
+		top: 9px;
+	}
+
+	.menu-burger.active:after{
+		transform: rotate(-45deg);
+		bottom: 9px;
+	}
+
+	.menu-burger.active span{
+		transform: scale(0);
+	}
+
+	.menu-burger span{
+		position: absolute;
+		width: 100%;
+		background: #C2ADCC;
+		height: 2px;
+		left: 0;
+		top: 9px;
+		transition: all 0.5s ease;
+	}
+	
+	.navigation__menu{
+		position: fixed;
+		top: -100%;
+		left: 0;
+		width: 100%;
+		overflow: auto;
+		background: #C2ADCC;
+		padding: 100px 0 20px 0;
+		transition: all 0.5s ease;	
+		z-index: 3
+	}
+
+	.navigation__menu.active{
+		top: 0;
+	}
+
+	.navigation__list{
+		display: block;
+	}
+
+	.navigation__item{
+		height: 40px;
+		justify-content: center;
+    	align-items: center;
+		display: flex;
+	}
+
+	.navigation__item:active{
+		background: #915fa9;
+	}
+
+	.navigation__item a{
+		color: #fff;
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+	.navigation__item a:hover{
+		border: none;
+	}
+}
+
+/* 320 - 576 px */
+@media screen and (max-width: 576px) {
+
+	.site-logo{
+		justify-content: center;
+		margin-bottom: 15px;
+	}
+
+	.header {
+	    padding-top: 130px;
+	}
+
+	.slide-picture{
+		display: none;
+	}
+
+	.slide__desc{
+		width: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		-ms-align-items: center;
+		align-items: center;
+	}
+
+	.shop .container {
+	    width: auto;
+	}
+
+	.container{
+		width: auto;		
+	}
+
+	.phone-content {
+	    width: 305px;
+	}
+
+	.phone-content__title {
+	    font-size: 33px;
+    }
+
+    .phone-wrap {
+	    background: url(../image/pink-small.jpg) no-repeat center left/cover;
+	}
+
+	.links__item{
+		text-align: center;
+	}
+
+	.social{
+		width: 80px;
+		margin: 0 auto;
+	}
+
+	.footer-text{
+		text-align: center;
+	}
+
+	.links{
+		flex-direction: column;
+	}
+
+	.navigation__menu{
+		position: fixed;
+		top: -100%;
+		left: 0;
+		width: 100%;
+		/*height: 100%;*/
+		overflow: auto;
+		background: #C2ADCC;
+		padding: 120px 0 20px 0;
+		transition: all 0.5s ease;	
+		z-index: 3
+	}
 }
