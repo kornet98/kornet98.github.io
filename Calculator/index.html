@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" >
+</head>
+<body>
+    <div class="flex-wrapper">
+        <div class="calculator-content">
+            <div class="calculator-content-title">
+                <h1>Розрахуйте іпотеку</h1>
+            </div>
+            <div class="calculator-content-body">
+                <div class="calculator-content-body-left">
+                    <div class="calculator-content-body-left-inputs">
+                        <div class="input-wrapper">
+                            <div class="title">Total price</div>
+                            <div class="input">
+                                <input type="number" id="total-cost" value="0">
+                            </div>
+                            <div class="input">
+                                <input type="range" min="0" max="10000000" id="total-cost-range" value="0" class="input-range">
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <div class="title">First income </div>
+                            <div class="input">
+                                <input type="number" id="an-initial-fee" value="0">
+                            </div>
+                            <div class="input">
+                                <input type="range" min="100000" id="an-initial-fee-range" value="0" class="input-range">
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <div class="title">Count years</div>
+                            <div class="input">
+                                <input type="number" id="credit-term" value="0">
+                            </div>
+                            <div class="input">
+                                <input type="range" min="1" max="20" id="credit-term-range" value="0" class="input-range">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calculator-content-title">
+                        <h2>Вибрати банк</h2>
+                    </div>
+                    <div class="calculator-content-body-left-btns">
+                        <button data-name="alfa" class="bank active">
+                            <div class="text">Альфа-банк</div>
+                            <div class="value">8,7 %</div>
+                        </button>
+                        <button data-name="oshchad" class="bank">
+                            <div class="text">Ощад банк</div>
+                            <div class="value">8,4 %</div>
+                        </button>
+                        <button data-name="pryvat" class="bank">
+                            <div class="text">Приват банк</div>
+                            <div class="value">8,1 %</div>
+                        </button>
+                        <button data-name="mega" class="bank">
+                            <div class="text">Мега банк</div>
+                            <div class="value">8,8 %</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="calculator-content-body-right">
+                    <div class="final-results-wrapper">
+                        <div class="final-results-items">
+                            <div class="title">Сума кредиту</div>
+                            <div class="value" id="amount-of-credit">0<span>UAN</span></div>
+                        </div>
+                        <div class="final-results-items">
+                            <div class="title">Щомісячний платіж</div>
+                            <div class="value" id="mounthly-payment">0<span>UAN</span></div>
+                        </div>
+                        <div class="final-results-items">
+                            <div class="title">Рекомендований дохід</div>
+                            <div class="value" id="recommended-income">0<span>UAN</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
