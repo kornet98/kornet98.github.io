@@ -572,7 +572,7 @@ i {
 }
 
 .phone-wrap{
-	background: url('../image/pink-fon.jpg') no-repeat center center;
+	background: url('../image/pink-fon.jpg') no-repeat center right/cover;
 	padding: 70px 0 48px 80px;
 }
 
@@ -755,7 +755,6 @@ i {
 	/*SECTION - phone*/
 
     .phone-wrap {
-	    background: url(../image/pink-fon.jpg) no-repeat center right/cover;
 	    padding: 38px 0 48px 25px;
 	}
 
@@ -850,10 +849,6 @@ i {
     }
 
 	/*SECTION - phone*/
-
-    .phone-wrap {
-	    background: url(../image/pink-fon.jpg) no-repeat center left/cover;
-	}
 
 	/*Burger*/ 
 
@@ -997,7 +992,8 @@ i {
     }
 
     .phone-wrap {
-	    background: url(../image/pink-small.jpg) no-repeat center left/cover;
+    	background-position: center;
+
 	}
 
 	.links__item{
